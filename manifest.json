@@ -1,0 +1,40 @@
+{
+	"name": "freeqc-fw-hpc",
+	"label": "freeqc-fw-hpc: Freesurfer quality and segmentation values",
+	"description": "Calculates quality metrics and structural values using freesurfer output from fMRIPrep [CUBIC]",
+	"version": "0.0.6_6.0.1",
+  "custom": {
+		"gear-builder": {
+			"category": "analysis",
+			"image": "pennbbl/freeqc-fw-hpc"
+		},
+    "flywheel": {"suite": "PennBBL"}
+  },
+	"author": "Ellyn Butler",
+	"maintainer": "Ellyn Butler",
+	"cite": "github.com/pennbbl/freeqc-fw-hpc",
+	"license": "BSD-3-Clause",
+	"source": "https://github.com/PennBBL/freeqc-fw-hpc",
+	"inputs": {
+		"api_key": {
+			"base": "api-key"
+		},
+		"fmriprepdir": {
+			"base": "file",
+			"description": "FMRIprep output directory",
+			"optional": false
+		},
+			"freesurfer_license": {
+				"base": "file",
+				"description": "FreeSurfer license file, provided during registration with FreeSurfer. This file will be copied to the $FSHOME directory and used during execution of the Gear.",
+				"optional": false
+			}
+	},
+	"config": {
+		"save_partial_outputs": {
+			"description": "Zip and save output directory contents on an algorithm failure. [default=false]",
+			"type": "boolean",
+			"default": false
+		}
+	}
+}

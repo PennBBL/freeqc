@@ -1,0 +1,6 @@
+*~
+*.csv
+*data/
+*input/
+*output/
+*.pdf
