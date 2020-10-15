@@ -9,7 +9,7 @@ from os import listdir
 from os.path import isfile, join
 import sys
 
-SUBCOL = sys.argv[1]
+SUBCOL = sys.argv[0]
 
 outputdir = '/output/'
 onlyfiles = [f for f in listdir(outputdir) if isfile(join(outputdir, f))]

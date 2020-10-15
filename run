@@ -54,7 +54,7 @@ rm ${OutDir}/out_rh.txt
 bash /scripts/stats2table_bash.sh ${SUBNAME} ${SESNAME}
 
 # Put in bblid and seslabel columns
-python /scripts/idcols.py
+python /scripts/idcols.py ${SUBCOL}
 
 qualcsv=`find ${OutDir} -name "*qual*.csv"`
 dktcsv=`find ${OutDir} -name "*rh_DKTatlas_volume.csv"`
