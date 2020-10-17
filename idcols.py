@@ -13,7 +13,7 @@ SUBCOL = sys.argv[0]
 
 outputdir = '/output/'
 onlyfiles = [f for f in listdir(outputdir) if isfile(join(outputdir, f))]
-onlyfiles = [f for f in onlyfiles if 'quality' not in f]
+onlyfiles = [f for f in onlyfiles if 'quality' not in f and 'csv' in f]
 
 def createIdCols(file):
     bblid = file.split('_')[0].split('-')[1]

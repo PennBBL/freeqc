@@ -5,7 +5,7 @@
 #############################################################
 
 license=`find /input/license/ -name 'license.txt'`
-cp ${license} ${FREESURFER_HOME}/
+export FS_LICENSE=${license}
 export SUBJECTS_DIR=$FREESURFER_HOME/subjects
 FUNCTIONALS_DIR=$FREESURFER_HOME/sessions
 source $FREESURFER_HOME/FreeSurferEnv.sh
@@ -55,14 +55,3 @@ bash /scripts/stats2table_bash.sh ${SUBNAME} ${SESNAME}
 
 # Put in bblid and seslabel columns
 python /scripts/idcols.py ${SUBCOL}
-
-qualcsv=`find ${OutDir} -name "*qual*.csv"`
-dktcsv=`find ${OutDir} -name "*rh_DKTatlas_volume.csv"`
-if [[ ! -f "${qualcsv}" ]] ; then
-  echo "Quality csv does not exist"
-  exit 1
-fi
-if [[ ! -f "${dktcsv}" ]] ; then
-  echo "DKT csv does not exist"
-  exit 1
-fi

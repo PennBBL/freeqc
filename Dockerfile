@@ -78,6 +78,8 @@ RUN pip install pandas==1.1.3
 RUN mkdir -p /scripts
 COPY stats2table_bash.sh /scripts/stats2table_bash.sh
 COPY idcols.py /scripts/idcols.py
+COPY run /scripts/run
+RUN chmod +x /scripts/run
 RUN mkdir -p /output
 RUN mkdir -p /input
 RUN mkdir -p /input/data
@@ -86,3 +88,5 @@ RUN chmod +x /input
 
 
 WORKDIR /home
+
+ENTRYPOINT /scripts/run
