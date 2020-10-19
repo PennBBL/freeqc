@@ -1,17 +1,21 @@
-
+#!/bin/bash
 
 #############################################################
 ##################### PROCESSING STEPS #####################
 #############################################################
 
 license=`find /input/license/ -name 'license.txt'`
-export FS_LICENSE=${license}
-export SUBJECTS_DIR=$FREESURFER_HOME/subjects
-FUNCTIONALS_DIR=$FREESURFER_HOME/sessions
-source $FREESURFER_HOME/FreeSurferEnv.sh
+#export FS_LICENSE=${license} #Messes up many freesurfer paths when put here
+#chmod +x ${FREESURFER_HOME} #Useless
+#mount -o remount,rw #Don't have the right privileges
+cp ${license} ${FREESURFER_HOME}
+export SUBJECTS_DIR=${FREESURFER_HOME}/subjects
+FUNCTIONALS_DIR=${FREESURFER_HOME}/sessions
+source ${FREESURFER_HOME}/FreeSurferEnv.sh
+
+#export FS_LICENSE=${license} #Try this here - not tried yet... works in shell, but not in run
 
 ####### fMRIPrep outputs that pass QA #######
-#InDir=${INPUT_DIR}/fmriprepdir/*/freesurfer
 InDir=/input/data
 OutDir=/output
 

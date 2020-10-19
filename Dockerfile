@@ -86,6 +86,8 @@ RUN mkdir -p /input/data
 RUN mkdir -p /input/license
 RUN chmod +x /input
 
+#RUN chmod +x ${FREESURFER_HOME} # Hopefully this will allow me to copy over the license... nope
+RUN chmod -R 777 ${FREESURFER_HOME} # Didn't work out
 
 WORKDIR /home
 
