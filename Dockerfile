@@ -78,8 +78,8 @@ RUN pip install pandas==1.1.3
 RUN mkdir -p /scripts
 COPY stats2table_bash.sh /scripts/stats2table_bash.sh
 COPY idcols.py /scripts/idcols.py
-COPY run /scripts/run
-RUN chmod +x /scripts/run
+COPY run.sh /scripts/run.sh
+RUN chmod +x /scripts/run.sh
 RUN mkdir -p /output
 RUN mkdir -p /input
 RUN mkdir -p /input/data
@@ -87,8 +87,8 @@ RUN mkdir -p /input/license
 RUN chmod +x /input
 
 #RUN chmod +x ${FREESURFER_HOME} # Hopefully this will allow me to copy over the license... nope
-RUN chmod -R 777 ${FREESURFER_HOME} # Didn't work out
+#RUN chmod -R 777 ${FREESURFER_HOME} # Didn't work out
 
 WORKDIR /home
 
-ENTRYPOINT /scripts/run
+ENTRYPOINT /scripts/run.sh
