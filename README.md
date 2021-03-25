@@ -1,8 +1,8 @@
 # FreeQC
 
-FreeQC calculate Euler's number and contrast-to-noise ratio values on Freesurfer
-output and outputs results into a csv with subject and session labels for easy
-tabulation across subjects/sessions.
+FreeQC calculates Euler's number, contrast-to-noise ratio values and total number
+of holes in the surface on Freesurfer output and creates a csv with subject and
+session labels for easy tabulation.
 
 ## Docker
 ### Setting up
