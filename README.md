@@ -6,20 +6,26 @@ tabulation across subjects/sessions.
 
 
 ## Docker
-# Installing Docker
+### Setting up
+You must [install Docker](https://docs.docker.com/get-docker/) to use the FreeQC image.
 
-# Pulling the Image
+After Docker is installed, pull the FreeQC image by running the following command:
+`docker pull pennbbl/freeqc:0.0.12`.
 
-# Running FreeQC
+Typically, Docker is used on local machines and not clusters because it requires
+root access. If you want to run the container on a cluster, follow the Singularity
+instructions.
+
+### Running FreeQC
 
 
 ## Singularity
-# Installing Docker
+### Setting up
 
-# Pulling the Image
+### Running FreeQC
+First, you must obtain [freesurfer license](https://surfer.nmr.mgh.harvard.edu/fswiki/License).
 
-# Running FreeQC
-
+SINGULARITYENV_SUBCOL=bblid SINGULARITYENV_SUBNAME=sub-10410 SINGULARITYENV_SESNAME=ses-FNDM11 singularity run --writable-tmpfs --cleanenv -B /project/ExtraLong/data/freesurferCrossSectional/freesurfer/sub-10410/ses-FNDM11:/input/data -B /project/ExtraLong/data/license.txt:/input/license/license.txt -B /project/ExtraLong/data/freesurferCrossSectional/freeqc/sub-10410/ses-FNDM11:/output /project/ExtraLong/images/freeqc_0.0.12.sif
 
 ## Example Launch Scripts
 
