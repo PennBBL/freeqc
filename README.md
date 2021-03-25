@@ -89,7 +89,7 @@ this line in your tabulation script.
 
 ## Notes
 1. This pipeline has only been tested on a couple versions of Freesurfer. If the
-structure of the output directories is different that the versions it was tested
+structure of the output directories is different than the versions it was tested
 on, FreeQC will fail.
 2. For details on how FreeQC was utilized for the ExtraLong project (all
 longitudinal T1w data in the BBL), see [this wiki](https://github.com/PennBBL/ExtraLong/wiki).
