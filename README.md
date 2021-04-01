@@ -10,7 +10,7 @@ You must [install Docker](https://docs.docker.com/get-docker/) to use the FreeQC
 Docker image.
 
 After Docker is installed, pull the FreeQC image by running the following command:
-`docker pull pennbbl/freeqc:0.0.12`.
+`docker pull pennbbl/freeqc:0.0.13`.
 
 Typically, Docker is used on local machines and not clusters because it requires
 root access. If you want to run the container on a cluster, follow the Singularity
@@ -47,7 +47,7 @@ You must [install Singularity](https://singularity.lbl.gov/docs-installation) to
 Singularity image.
 
 After Singularity is installed, pull the FreeQC image by running the following command:
-`singularity pull docker://pennbbl/freeqc:0.0.12`.
+`singularity pull docker://pennbbl/freeqc:0.0.13`.
 
 Note that Singularity does not work on Macs, and will almost surely have to be
 installed by a system administrator on your institution's computing cluster.
@@ -84,7 +84,7 @@ See [this script](https://github.com/PennBBL/ExtraLong/blob/master/scripts/proce
 for an example of how to tabulate results. Note that this script was written for
 FreeQC v0.0.9, which had a bug that resulted in the subject column name being
 '/scripts/idcols.py' opposed to the specified value, 'bblid'. If you are using
-FreeQC v0.0.12, this error has been corrected and therefore you will not need
+FreeQC v0.0.13, this error has been corrected and therefore you will not need
 this line in your tabulation script.
 
 ## Notes
