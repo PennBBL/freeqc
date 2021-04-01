@@ -32,7 +32,7 @@ docker run -it -e SUBCOL="bblid" -e SUBNAME="sub-10410" -e SESNAME="ses-FNDM11" 
 - Line 2: Bind Freesurfer output directory (`/Users/butellyn/Documents/ExtraLong/data/freesurferCrossSectional/freesurfer/sub-10410/ses-FNDM11`)
 to the input directory in the container (`/input/data`).
 - Line 3: Bind the Freesurfer license (`/Users/butellyn/Documents/license.txt`)
-into the container (`/input/license/license.txt`).
+to the container (`/input/license/license.txt`).
 - Line 4: Bind the directory where you want your FreeQC output to end up
 (`/Users/butellyn/Documents/ExtraLong/data/freesurferCrossSectional/freeqc/sub-10410/ses-FNDM11`)
 to the `/output` directory in the container.
@@ -68,7 +68,7 @@ SINGULARITYENV_SUBCOL=bblid SINGULARITYENV_SUBNAME=sub-10410 SINGULARITYENV_SESN
 - Line 2: Bind Freesurfer output directory (`/project/ExtraLong/data/freesurferCrossSectional/freesurfer/sub-10410/ses-FNDM11`)
 to the input directory in the container (`/input/data`).
 - Line 3: Bind the Freesurfer license (`/project/ExtraLong/data/license.txt`)
-into the container (`/input/license/license.txt`).
+to the container (`/input/license/license.txt`).
 - Line 4: Bind the directory where you want your FreeQC output to end up
 (`/project/ExtraLong/data/freesurferCrossSectional/freeqc/sub-10410/ses-FNDM11`)
 to the `/output` directory in the container.
@@ -93,3 +93,5 @@ structure of the output directories is different than the versions it was tested
 on, FreeQC will fail.
 2. For details on how FreeQC was utilized for the ExtraLong project (all
 longitudinal T1w data in the BBL), see [this wiki](https://github.com/PennBBL/ExtraLong/wiki).
+3. Future directions: Input variables should be passed directly to the container,
+opposed to as environment variables. Set home directory in Dockerfile.
