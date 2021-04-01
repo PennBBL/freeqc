@@ -4,11 +4,10 @@
 ##################### PROCESSING STEPS #####################
 #############################################################
 
-license=`find /input/license/ -name 'license.txt'`
-#export FS_LICENSE=${license} #Messes up many freesurfer paths when put here
-#chmod +x ${FREESURFER_HOME} #Useless
-#mount -o remount,rw #Don't have the right privileges
-cp ${license} ${FREESURFER_HOME}
+#KZ: Just mount license directly to /opt/freesurfer/license.txt
+#license=`find /input/license/ -name 'license.txt'`
+#cp ${license} ${FREESURFER_HOME}
+
 export SUBJECTS_DIR=${FREESURFER_HOME}/subjects
 FUNCTIONALS_DIR=${FREESURFER_HOME}/sessions
 source ${FREESURFER_HOME}/FreeSurferEnv.sh
