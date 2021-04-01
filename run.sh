@@ -4,7 +4,8 @@
 ##################### PROCESSING STEPS #####################
 #############################################################
 
-#KZ: Just mount license directly to /opt/freesurfer/license.txt
+## KZ: Commenting out the following lines... 
+## ...just mount license directly to /opt/freesurfer/license.txt
 #license=`find /input/license/ -name 'license.txt'`
 #cp ${license} ${FREESURFER_HOME}
 
