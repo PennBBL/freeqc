@@ -23,9 +23,9 @@ Here is an example from one of Ellyn's runs:
 ```
 docker run -it -e SUBCOL="bblid" -e SUBNAME="sub-10410" -e SESNAME="ses-FNDM11" \
   -v /Users/butellyn/Documents/ExtraLong/data/freesurferCrossSectional/freesurfer/sub-10410/ses-FNDM11:/input/data \
-  -v /Users/butellyn/Documents/license.txt:/input/license/license.txt \
+  -v /Users/butellyn/Documents/license.txt:/opt/freesurfer/license.txt \
   -v /Users/butellyn/Documents/ExtraLong/data/freesurferCrossSectional/freeqc/sub-10410/ses-FNDM11:/output \
-  pennbbl/freeqc:0.0.12
+  pennbbl/freeqc:0.0.13
 ```
 
 - Line 1: Define environmental variables needed for output csvs.
@@ -59,16 +59,16 @@ Here is an example from one of Ellyn's runs:
 ```
 SINGULARITYENV_SUBCOL=bblid SINGULARITYENV_SUBNAME=sub-10410 SINGULARITYENV_SESNAME=ses-FNDM11 singularity run --writable-tmpfs --cleanenv \
   -B /project/ExtraLong/data/freesurferCrossSectional/freesurfer/sub-10410/ses-FNDM11:/input/data \
-  -B /project/ExtraLong/data/license.txt:/input/license/license.txt \
+  -B /project/ExtraLong/data/license.txt:/opt/freesurfer/license.txt \
   -B /project/ExtraLong/data/freesurferCrossSectional/freeqc/sub-10410/ses-FNDM11:/output \
-  /project/ExtraLong/images/freeqc_0.0.12.sif
+  /project/ExtraLong/images/freeqc_0.0.13.sif
 ```
 
-- Line 1: Define environmental variables needed for output csvs.
+- Line 1: Define environmental variables needed for output csvs (SUBCOL, SUBNAME, SESNAME).
 - Line 2: Bind Freesurfer output directory (`/project/ExtraLong/data/freesurferCrossSectional/freesurfer/sub-10410/ses-FNDM11`)
 to the input directory in the container (`/input/data`).
 - Line 3: Bind the Freesurfer license (`/project/ExtraLong/data/license.txt`)
-into the container (`/input/license/license.txt`).
+into the container (`/opt/freesurfer/license.txt`).
 - Line 4: Bind the directory where you want your FreeQC output to end up
 (`/project/ExtraLong/data/freesurferCrossSectional/freeqc/sub-10410/ses-FNDM11`)
 to the `/output` directory in the container.
