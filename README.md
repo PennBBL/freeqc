@@ -32,7 +32,7 @@ docker run -it -e SUBCOL="bblid" -e SUBNAME="sub-10410" -e SESNAME="ses-FNDM11" 
 - Line 2: Bind Freesurfer output directory (`/Users/butellyn/Documents/ExtraLong/data/freesurferCrossSectional/freesurfer/sub-10410/ses-FNDM11`)
 to the input directory in the container (`/input/data`).
 - Line 3: Bind the Freesurfer license (`/Users/butellyn/Documents/license.txt`)
-to the container (`/input/license/license.txt`).
+to the container (`/opt/freesurfer/license.txt`).
 - Line 4: Bind the directory where you want your FreeQC output to end up
 (`/Users/butellyn/Documents/ExtraLong/data/freesurferCrossSectional/freeqc/sub-10410/ses-FNDM11`)
 to the `/output` directory in the container.
