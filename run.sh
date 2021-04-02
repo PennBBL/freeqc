@@ -4,6 +4,11 @@
 ##################### PROCESSING STEPS #####################
 #############################################################
 
+# Positional command line args
+subcol=$1
+subName=$2
+sesName=$3
+
 ## KZ: Commenting out the following lines... 
 ## ...just mount license directly to /opt/freesurfer/license.txt
 #license=`find /input/license/ -name 'license.txt'`
@@ -19,8 +24,8 @@ source ${FREESURFER_HOME}/FreeSurferEnv.sh
 InDir=/input/data
 OutDir=/output
 
-bblid=`echo ${SUBNAME} | cut -d "-" -f 2`
-seslabel=`echo ${SESNAME} | cut -d "-" -f 2`
+bblid=`echo ${subName} | cut -d "-" -f 2`
+seslabel=`echo ${sesName} | cut -d "-" -f 2`
 surfDir=${InDir}/surf ### MIGHT HAVE TO GIT RID OF DIRS BETWEEN INPUT AND FREESURFER
 mriDir=${InDir}/mri
 
@@ -46,8 +51,8 @@ holes_total=`expr $holes_lh + $holes_rh`
 euler_total=`expr $euler_lh + $euler_rh`
 
 # ----- CSV ----- #
-echo "${SUBCOL},seslabel,cnr_graycsf_lh,cnr_graycsf_rh,cnr_graywhite_lh,cnr_graywhite_rh,holes_lh,holes_rh,holes_total,euler_lh,euler_rh,euler_total" > ${OutDir}/${SUBNAME}_${SESNAME}_quality.csv
-echo "${bblid},${seslabel},${cnr_graycsf_lh},${cnr_graycsf_rh},${cnr_graywhite_lh},${cnr_graywhite_rh},${holes_lh},${holes_rh},${holes_total},${euler_lh},${euler_rh},${euler_total}" >> ${OutDir}/${SUBNAME}_${SESNAME}_quality.csv
+echo "${subCol},seslabel,cnr_graycsf_lh,cnr_graycsf_rh,cnr_graywhite_lh,cnr_graywhite_rh,holes_lh,holes_rh,holes_total,euler_lh,euler_rh,euler_total" > ${OutDir}/${subName}_${sesName}_quality.csv
+echo "${bblid},${seslabel},${cnr_graycsf_lh},${cnr_graycsf_rh},${cnr_graywhite_lh},${cnr_graywhite_rh},${holes_lh},${holes_rh},${holes_total},${euler_lh},${euler_rh},${euler_total}" >> ${OutDir}/${subName}_${sesName}_quality.csv
 
 # Remove unnecessary files
 rm ${OutDir}/cnr.txt
@@ -55,7 +60,7 @@ rm ${OutDir}/out_lh.txt
 rm ${OutDir}/out_rh.txt
 
 # Quantify regional values
-bash /scripts/stats2table_bash.sh ${SUBNAME} ${SESNAME}
+bash /scripts/stats2table_bash.sh ${subName} ${sesName}
 
 # Put in bblid and seslabel columns
-python /scripts/idcols.py ${SUBCOL}
+python /scripts/idcols.py ${subCol}
