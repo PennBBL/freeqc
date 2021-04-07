@@ -93,5 +93,8 @@ structure of the output directories is different than the versions it was tested
 on, FreeQC will fail.
 2. For details on how FreeQC was utilized for the ExtraLong project (all
 longitudinal T1w data in the BBL), see [this wiki](https://github.com/PennBBL/ExtraLong/wiki).
-3. Future directions: Input variables should be passed directly to the container,
-opposed to as environment variables. Set home directory in Dockerfile.
+
+## Future Directions
+1. Input variables should be passed directly to the container,
+opposed to as environment variables.
+2. Set home directory in Dockerfile.
