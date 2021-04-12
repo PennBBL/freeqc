@@ -91,4 +91,4 @@ RUN chmod +x /input
 
 WORKDIR /home
 
-ENTRYPOINT /scripts/run.sh
+ENTRYPOINT ["/scripts/run.sh"]
