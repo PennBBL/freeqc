@@ -1,13 +1,99 @@
 #!/bin/bash
 
 #############################################################
-##################### PROCESSING STEPS #####################
+#################### PARSE CMD LINE ARGS ####################
+#############################################################
+VERSION=0.0.13
+
+usage () {
+    cat <<- HELP_MESSAGE
+
+      usage:  $0 [--help] [--version] [--column <SUBJECT COLUMN>]
+              --subject <SUBJECT LABEL> --session <SESSION LABEL>
+
+      -h  | --help     Print this message and exit.
+      -v  | --version  Print version and exit.
+      -c  | --column   Name of subject column for output csv files.
+      -sj | --subject  Subject label.
+      -sn | --session  Session label.
+
+HELP_MESSAGE
+}
+
+# Display usage message if no args are given
+if [[ $# -eq 0 ]] ; then
+  usage
+  exit 1
+fi
+
+# Parse cmd line options
+#PARAMS=""
+while (( "$#" )); do
+  case "$1" in
+    -h | --help)
+        usage
+        exit 0
+      ;;
+    -v | --version)
+        echo $VERSION
+        exit 0
+      ;;
+    -c | --column)
+      if [ -n "$2" ] && [ ${2:0:1} != "-" ]; then
+        subCol=$2
+        shift 2
+      else
+        echo "$0: Error: Argument for $1 is missing" >&2
+        exit 1
+      fi
+      ;;
+    -sj | --subject)
+      if [ -n "$2" ] && [ ${2:0:1} != "-" ]; then
+        subName=$2
+        shift 2
+      else
+        echo "$0: Error: Argument for $1 is missing" >&2
+        exit 1
+      fi
+      ;;
+    -sn | --session)
+      if [ -n "$2" ] && [ ${2:0:1} != "-" ]; then
+        sesName=$2
+        shift 2
+      else
+        echo "$0: Error: Argument for $1 is missing" >&2
+        exit 1
+      fi
+      ;;
+    -*|--*=) # unsupported flags
+      echo "$0: Error: Unsupported flag $1" >&2
+      exit 1
+      ;;
+    #*) # parse positional arguments
+    #  PARAMS="$PARAMS $1"
+    #  shift
+    #  ;;
+  esac
+done
+
+# set positional arguments in their proper place
+#eval set -- "$PARAMS"
+
+# Check if required args were given, 
+if [[ -z "$subName" ]]; then
+  echo "$0: Error: Missing required argument: --subject <SUBJECT LABEL>" >&2
+  exit 1
+elif [[ -z "$sesName" ]]; then
+  echo "$0: Error: Missing required argument: --session <SESSION LABEL>" >&2
+  exit 1
+elif [[ -z "$subCol" ]]; then
+  subCol=bblid
+fi
+
+#############################################################
+###################### PROCESSING STEPS #####################
 #############################################################
 
-# Positional command line args
-subcol=$1
-subName=$2
-sesName=$3
 
 ## KZ: Commenting out the following lines... 
 ## ...just mount license directly to /opt/freesurfer/license.txt
