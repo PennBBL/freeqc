@@ -9,7 +9,7 @@ from os import listdir
 from os.path import isfile, join
 import sys
 
-SUBCOL = sys.argv[1]
+subCol = sys.argv[1]
 
 outputdir = '/output/'
 onlyfiles = [f for f in listdir(outputdir) if isfile(join(outputdir, f))]
@@ -21,7 +21,7 @@ def createIdCols(file):
     df = pd.read_csv(outputdir+file)
     if 'sub' in df.iloc[0,0]:
         df = df.drop(labels=df.columns[0], axis=1)
-    df[SUBCOL] = bblid
+    df[subCol] = bblid
     df['seslabel'] = seslabel
     cols = df.columns.tolist()
     cols = cols[-1:] + cols[:-1]
