@@ -103,6 +103,4 @@ on, FreeQC will fail.
 longitudinal T1w data in the BBL), see [this wiki](https://github.com/PennBBL/ExtraLong/wiki).
 
 ## Future Directions
-1. Input variables should be passed directly to the container,
-opposed to as environment variables.
-2. Set home directory in Dockerfile.
+1. Set home directory in Dockerfile.
